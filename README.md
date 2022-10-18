@@ -9,10 +9,13 @@ GitHub Action that prints Android test xml reports.
 ## Getting Started
 
 Add the following action to your GitHub Actions workflow.
+*If you need to add to report only failed test set onlyFailed = true*
 
 ```yml
 - name: Android Test Report
-  uses: asadmansr/android-test-report-action@v1.2.0
+  uses: devapro/android-test-report-action@v1.3
+  with:
+    onlyFailed: true
 ```
 
 <br>
@@ -56,8 +59,6 @@ The workflow must contain the unit test job prior to running the Android Test Re
 ### Alternate
 
 If the basic usage fails to meet your requirement (running on MacOS machine or anything else), split the test and report into two jobs. The test job will run the tests and save the reports as artifacts. The report job will use the Android Test Report action to parse and print the results. Consider the following example below.
-
-*If you need to add to report only failed test set onlyFailed = true*
 
 ```yml
 jobs:
